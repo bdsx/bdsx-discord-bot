@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "CommonJS",
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "strict": true
+    }
+}

@@ -1,0 +1,5 @@
+/node_modules
+/discord.json
+/state.json
+**/*.js
+**/*.js.map

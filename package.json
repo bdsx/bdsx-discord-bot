@@ -1,0 +1,21 @@
+{
+  "name": "bdsx-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^0.4.1",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31"
+  }
+}
