@@ -50,7 +50,7 @@ registerCommand(
     .setDescription('update it from git'),
     null,
     async(interaction)=>{
-        if (!checkRole(interaction, 'test')) {
+        if (!checkRole(interaction, 'GitHub Member')) {
             await interaction.reply('permission denied');
             return;
         }
