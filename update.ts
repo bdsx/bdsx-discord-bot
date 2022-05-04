@@ -10,6 +10,7 @@ function shell(cmd:string):void {
 export async function updateBot():Promise<void> {
     shell('git pull');
     shell('npm i');
+    shell('npm run build');
     await botlog('Stopped');
     client.destroy();
 }
