@@ -25,6 +25,8 @@ export class BotConsole {
     private updated = false;
     private updating:Promise<void>|null = null;
 
+    private skipTimeout:(()=>void)|null = null;
+
     private async _update():Promise<void> {
         if (this.updating !== null) {
             this.updated = true;
@@ -53,7 +55,12 @@ export class BotConsole {
             } else {
                 this.msgs = await Promise.all(this.msgs.map(item=>item.edit(out)));
             }
-            await new Promise(resolve=>setTimeout(resolve, 1000));
+            await new Promise<void>(resolve=>{
+                setTimeout(resolve, 1000);
+                this.skipTimeout = resolve;
+            });
+            this.skipTimeout = null;
+
             if (!this.updated) break;
             else this.updated = false;
         }
@@ -80,6 +87,9 @@ export class BotConsole {
     }
 
     flush():Promise<void> {
+        if (this.skipTimeout !== null) {
+            this.skipTimeout();
+        }
         return this.updating ?? Promise.resolve();
     }
 }
