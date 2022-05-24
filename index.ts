@@ -40,6 +40,7 @@ helpChannel.on('delete', async(msg)=>{
 // catch global error
 process.on('uncaughtException', err=>{
     botlog('```\n'+err.stack!+'\n```');
+    console.error(err.stack);
 });
 
 // commmands
