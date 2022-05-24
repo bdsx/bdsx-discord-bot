@@ -8,6 +8,9 @@ import { checkRole } from './role';
 import { updateBot } from './update';
 import data = require('./discord.json');
 
+// set cwd to the project directory
+process.chdir(__dirname);
+
 // Invitation Link: https://discord.com/api/oauth2/authorize?client_id=970738927638052915&permissions=8&scope=bot%20applications.commands
 onReady(async()=>{
     botlog('Started');
