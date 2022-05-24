@@ -23,10 +23,10 @@ let saving:Promise<void>|null = null;
 let saveRequest = false;
 
 Object.setPrototypeOf(state, {
-    async save():Promise<void> {
+    save():Promise<void> {
         saveRequest = true;
         if (saving !== null) return saving;
-        saving = (async()=>{
+        return saving = (async()=>{
             while (saveRequest) {
                 saveRequest = false;
                 await fs.promises.writeFile(stateFilePath, JSON.stringify(state, null, 4));

@@ -8,9 +8,12 @@ function shell(cmd:string):void {
 }
 
 export async function updateBot():Promise<void> {
+    await botlog('git pull');
     shell('git pull');
+    await botlog('npm i');
     shell('npm i');
+    await botlog('npm run build');
     shell('npm run build');
-    await botlog('Stopped');
+    await botlog('Closing');
     client.destroy();
 }

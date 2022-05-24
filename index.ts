@@ -34,6 +34,11 @@ helpChannel.on('delete', async(msg)=>{
     }
 });
 
+// catch global error
+process.on('uncaughtException', err=>{
+    botlog(err.stack!);
+});
+
 // commmands
 registerCommand(
     new SlashCommandBuilder()
