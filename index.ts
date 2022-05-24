@@ -39,7 +39,7 @@ helpChannel.on('delete', async(msg)=>{
 
 // catch global error
 process.on('uncaughtException', err=>{
-    botlog(err.stack!);
+    botlog('```\n'+err.stack!+'\n```');
 });
 
 // commmands
@@ -59,10 +59,10 @@ registerCommand(
     null,
     async(interaction)=>{
         if (!checkRole(interaction, 'GitHub Member')) {
-            await interaction.reply('permission denied');
+            await interaction.reply('```\npermission denied\n```');
             return;
         }
-        await interaction.reply('updating...');
+        await interaction.reply('```\nupdating...\n```');
         await updateBot();
     }
 );
