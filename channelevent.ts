@@ -1,4 +1,5 @@
 import { DMChannel, Message, PartialDMChannel, PartialMessage, TextChannel } from "discord.js";
+import { botlog } from "./botlog";
 import { client } from "./client";
 
 type DMMessage = Message&{channel:DMChannel|PartialDMChannel};
@@ -24,7 +25,11 @@ export class ChannelTarget<ChannelType> {
             return;
         }
         for (const cb of list) {
-            cb(param);
+            try {
+                cb(param);
+            } catch (err) {
+                botlog((err instanceof Error ? err.stack : err)+'');
+            }
         }
     }
 
