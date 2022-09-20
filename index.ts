@@ -23,7 +23,7 @@ helpChannel.on('message', async(msg)=>{
     switch (msg.type) {
     case 'DEFAULT':
         await msg.startThread({
-            name: `[${author.username}] ${msg.content.split('\n', 1)[0]}`,
+            name: '',
         });
         break;
     default:
