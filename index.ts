@@ -24,7 +24,7 @@ helpChannel.on('message', async(msg)=>{
     case 'DEFAULT':
         const firstLine = msg.content.split('\n', 1)[0];
         await msg.startThread({
-            name: `[${author.username}] ${firstLine.replace(/[^a-zA-Z0-9'() ]/g, ' ').replace(/ +/g, ' ')}`,
+            name: `${firstLine.replace(/[^a-zA-Z0-9'() ]/g, ' ').replace(/ +/g, ' ')}`.substring(0, 100),
         });
         break;
     default:
