@@ -43,7 +43,11 @@ helpChannel.on('delete', async(msg)=>{
 });
 
 // catch global error
+const errorIgnores = new Set<string>([
+    'WebSocket was closed before the connection was established',
+]);
 process.on('uncaughtException', err=>{
+    if (errorIgnores.has(err.message)) return;
     botlog('```\n'+err.stack!+'\n```');
     console.error(err.stack);
 });
